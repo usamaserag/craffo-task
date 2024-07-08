@@ -4,7 +4,7 @@ import HeroPage from "./components/HeroPage";
 
 const App = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       <Navbar />
       <HeroPage />
     </div>
