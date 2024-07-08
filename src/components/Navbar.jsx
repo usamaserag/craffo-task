@@ -89,7 +89,7 @@ const Navbar = () => {
             >
               <span className="nav-link">Collections</span>
             </div>
-            <div className="nav-link">Blog</div>
+            <div className="nav-link cursor-pointer">Blog</div>
           </div>
         )}
         <div className="flex items-center gap-6">

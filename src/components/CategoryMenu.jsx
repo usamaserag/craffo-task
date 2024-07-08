@@ -38,15 +38,14 @@ const CategoryMenu = ({ visible, setCategoryMenuVisible }) => {
     },
   ];
 
-  // Variants for animation
   const menuVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delayChildren: 0.2, // Delay each item
-        staggerChildren: 0.1, // Stagger between each item
+        delayChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -111,8 +110,8 @@ const CategoryMenu = ({ visible, setCategoryMenuVisible }) => {
                 variants={menuItemVariants}
                 className="flex flex-col items-center gap-2"
               >
-                <div>
-                  <img src={item.src} alt="title" />
+                <div className="overflow-hidden cursor-pointer">
+                  <img className="hover:scale-110 duration-500 ease-in-out" src={item.src} alt="title" />
                 </div>
                 <b>{item.title}</b>
                 <p className="text-center">{item.text}</p>

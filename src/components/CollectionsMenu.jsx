@@ -111,8 +111,8 @@ const CollectionsMenu = ({ visible, setCollectionsMenuVisible }) => {
                   variants={menuItemVariants}
                   className="flex flex-col items-center gap-2"
                 >
-                  <div>
-                    <img src={item.src} alt="title" />
+                  <div className="overflow-hidden cursor-pointer">
+                    <img className="hover:scale-110 duration-500 ease-in-out" src={item.src} alt="title" />
                   </div>
                   <b>{item.title}</b>
                 </motion.div>

@@ -31,15 +31,14 @@ const DeviceMenu = ({ visible, setDeviceMenuVisible }) => {
 
   const airpods = [{ name: "AirPods Pro" }, { name: "AirPods Gen 1 & 2" }];
 
-  // Variants for animation
   const menuVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delayChildren: 0.2, // Delay each item
-        staggerChildren: 0.1, // Stagger between each item
+        delayChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -137,8 +136,8 @@ const DeviceMenu = ({ visible, setDeviceMenuVisible }) => {
             className="flex flex-col gap-4 col-span-1"
           >
             <motion.div variants={menuItemVariants} className="flex flex-col items-center gap-2">
-              <div>
-                <img src={Iphones} alt="IPHONES" />
+              <div className="overflow-hidden cursor-pointer">
+                <img className="hover:scale-110 duration-500 ease-in-out" src={Iphones} alt="IPHONES" />
               </div>
               <b>IPHONE</b>
               <small className="text-center">
