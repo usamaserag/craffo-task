@@ -9,11 +9,18 @@ import {
 } from "react-icons/ai";
 import FocalLogo from "../assets/logo/logo-focal.avif";
 import Sidebar from "./Sidebar";
+import CollectionsMenu from "./CollectionsMenu";
+import DeviceMenu from "./DeviceMenu";
+import CategoryMenu from "./CategoryMenu";
 
 const Navbar = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [collectionsVisible, setCollectionsVisible] = useState(false);
+  const [deviceVisible, setDeviceVisible] = useState(false);
+  const [categoryVisible, setCategoryVisible] = useState(false);
 
   const handleMenuClick = () => {
     setSidebarOpen(!sidebarOpen);
@@ -60,11 +67,29 @@ const Navbar = () => {
             <img className="w-full h-full" src={FocalLogo} alt="logo" />
           </div>
         ) : (
-          <div className="flex items-center gap-6">
-            <div>Shop by Category</div>
-            <div>Shop by Device</div>
-            <div>Collections</div>
-            <div>Blog</div>
+          <div className="flex items-center h-full gap-6">
+            <div
+              className="h-full flex items-center justify-center cursor-pointer"
+              onMouseEnter={() => setCategoryVisible(true)}
+              onMouseLeave={() => setCategoryVisible(false)}
+            >
+              <span className="nav-link">Shop by Category</span>
+            </div>
+            <div
+              className="h-full flex items-center justify-center cursor-pointer"
+              onMouseEnter={() => setDeviceVisible(true)}
+              onMouseLeave={() => setDeviceVisible(false)}
+            >
+              <span className="nav-link">Shop by Device</span>
+            </div>
+            <div
+              className="h-full flex items-center justify-center cursor-pointer"
+              onMouseEnter={() => setCollectionsVisible(true)}
+              onMouseLeave={() => setCollectionsVisible(false)}
+            >
+              <span className="nav-link">Collections</span>
+            </div>
+            <div className="nav-link">Blog</div>
           </div>
         )}
         <div className="flex items-center gap-6">
@@ -81,6 +106,24 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {collectionsVisible && (
+        <CollectionsMenu
+          visible={collectionsVisible}
+          setCollectionsMenuVisible={setCollectionsVisible}
+        />
+      )}
+      {deviceVisible && (
+        <DeviceMenu
+          visible={deviceVisible}
+          setDeviceMenuVisible={setDeviceVisible}
+        />
+      )}
+      {categoryVisible && (
+        <CategoryMenu
+          visible={categoryVisible}
+          setCategoryMenuVisible={setCategoryVisible}
+        />
+      )}
       <Sidebar open={sidebarOpen} onClose={handleCloseSidebar} />
     </>
   );
