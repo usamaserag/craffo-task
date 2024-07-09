@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="h-20 w-full px-8 flex items-center justify-between bg-gray-800 sticky top-0 text-white">
+      <nav className="h-20 w-full px-8 flex items-center justify-between bg-gray-800 sticky top-0 text-white z-10">
         {isSmallScreen ? (
           <div className="flex items-center gap-6">
             <AiOutlineMenu

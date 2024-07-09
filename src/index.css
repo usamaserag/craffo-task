@@ -40,3 +40,38 @@
 .nav-link:hover::after {
   width: 100%;
 }
+
+.swiper-pagination-bullet {
+  width: 40px !important;
+  height: 2px !important;
+  border-radius: 0 !important;
+  background-color: var(--color-bullet) !important;
+  border: none !important;
+  position: relative;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-bullet) !important;
+}
+
+@keyframes progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.swiper-pagination-bullet-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-nav-bg);
+  transform-origin: left;
+  animation: progress 6s linear infinite;
+}

@@ -14,6 +14,16 @@ module.exports = {
       }
 
     },
-  }
+  },
+  plugins: [
+    function({ addBase, theme }) {
+      addBase({
+        ':root': {
+          '--color-nav-bg': theme('colors.nav_bg'),
+          '--color-bullet': "#e5e7eb"
+        },
+      });
+    },
+  ],
 }
 
