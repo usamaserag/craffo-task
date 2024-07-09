@@ -21,7 +21,7 @@ const Navbar = () => {
   const [collectionsVisible, setCollectionsVisible] = useState(false);
   const [deviceVisible, setDeviceVisible] = useState(false);
   const [categoryVisible, setCategoryVisible] = useState(false);
-
+  const [blogVisible, setBlogVisible] = useState(false);
   const handleMenuClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -73,23 +73,45 @@ const Navbar = () => {
               onMouseEnter={() => setCategoryVisible(true)}
               onMouseLeave={() => setCategoryVisible(false)}
             >
-              <span className="nav-link">Shop by Category</span>
+              <span
+                className={`nav-link ${categoryVisible && "nav-link-active"}`}
+              >
+                Shop by Category
+              </span>
             </div>
             <div
               className="h-full flex items-center justify-center cursor-pointer"
               onMouseEnter={() => setDeviceVisible(true)}
               onMouseLeave={() => setDeviceVisible(false)}
             >
-              <span className="nav-link">Shop by Device</span>
+              <span
+                className={`nav-link ${deviceVisible && "nav-link-active"}`}
+              >
+                Shop by Device
+              </span>
             </div>
             <div
               className="h-full flex items-center justify-center cursor-pointer"
               onMouseEnter={() => setCollectionsVisible(true)}
               onMouseLeave={() => setCollectionsVisible(false)}
             >
-              <span className="nav-link">Collections</span>
+              <span
+                className={`nav-link ${
+                  collectionsVisible && "nav-link-active"
+                }`}
+              >
+                Collections
+              </span>
             </div>
-            <div className="nav-link cursor-pointer">Blog</div>
+            <div
+              className="h-full flex items-center justify-center cursor-pointer"
+              onMouseEnter={() => setBlogVisible(true)}
+              onMouseLeave={() => setBlogVisible(false)}
+            >
+              <span className={`nav-link ${blogVisible && "nav-link-active"}`}>
+                Blog
+              </span>
+            </div>
           </div>
         )}
         <div className="flex items-center gap-6">

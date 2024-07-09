@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         nav_bg: "rgb(40, 40, 40)",
+        button_bg: "rgb(243, 255, 52)",
       },
       width: {
         sidebar_width: "400px",

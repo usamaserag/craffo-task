@@ -53,11 +53,11 @@ const DeviceMenu = ({ visible, setDeviceMenuVisible }) => {
       initial="hidden"
       animate={visible ? "visible" : "hidden"}
       variants={menuVariants}
-      className="absolute top-20 left-0 w-full max-h-fit bg-white z-50 shadow-md"
+      className="absolute top-20 left-0 w-full max-h-80 overflow-x-auto bg-white z-50 shadow-md"
       onMouseEnter={() => setDeviceMenuVisible(true)}
       onMouseLeave={() => setDeviceMenuVisible(false)}
     >
-      <div className="py-8 px-16">
+      <div className="py-8 px-16 h-full">
         <div className="grid gap-4 grid-cols-5">
           <motion.div
             variants={menuItemVariants}

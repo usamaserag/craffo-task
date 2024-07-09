@@ -58,7 +58,7 @@ const CollectionsMenu = ({ visible, setCollectionsMenuVisible }) => {
       initial="hidden"
       animate={visible ? "visible" : "hidden"}
       variants={menuVariants}
-      className="absolute top-20 left-0 w-full max-h-fit bg-white z-50 shadow-md"
+      className="absolute top-20 left-0 w-full max-h-80 overflow-x-auto bg-white z-50 shadow-md"
       onMouseEnter={() => setCollectionsMenuVisible(true)}
       onMouseLeave={() => setCollectionsMenuVisible(false)}
     >

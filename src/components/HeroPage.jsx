@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 import Image_1 from "../assets/navbar_images/heritage-collection.webp";
 import Image_2 from "../assets/slide_images/jump-mobile.webp";
 import Image_3 from "../assets/slide_images/mk-lp-tile-1-mobile.webp";
@@ -31,33 +31,45 @@ const sliderImages = [
     title: "PREMIUM COLLECTION",
     text: ["The", "Heritage", "Collection"],
     image: Image_1,
+    textButton: ["LEARN MORE", "SHOP"],
   },
-  { title: "MEET THE", text: ["SAGE", "COLLECTION"], image: Image_2 },
+  {
+    title: "MEET THE",
+    text: ["SAGE", "COLLECTION"],
+    image: Image_2,
+    textButton: ["LEARN MORE"],
+  },
   {
     title: "Collaboration",
     text: ["Native", "Union x", "Tom Dixon"],
     image: Image_3,
+    textButton: ["LEARN MORE"],
   },
   {
     title: "CHARGE ANYWHERE, ANYTIME",
     text: ["New", "Jump+", "Powerbank"],
     image: Image_4,
+    textButton: ["SHOP JUMP+"],
   },
   {
     title: "NEW IN",
     text: ["The", "Maison", "Kitsuné", "Collab"],
     image: Image_5,
+    textButton: ["LEARN MORE"],
   },
 ];
 
 const HeroPage = () => {
   const [swiper, setSwiper] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleProgress = () => {
     if (swiper) {
-      const swiperProgress = (swiper.realIndex / (sliderImages.length - 1)) * 100;
+      const swiperProgress =
+        (swiper.realIndex / (sliderImages.length - 1)) * 100;
       setProgress(swiperProgress);
+      setActiveIndex(swiper.realIndex);
     }
   };
 
@@ -111,6 +123,7 @@ const HeroPage = () => {
                 className="w-full h-full object-cover"
               />
               <motion.div
+                key={activeIndex} // Force re-render on slide change
                 className={`absolute inset-0 flex px-6 ${
                   index % 2 !== 0 ? "justify-center" : "justify-start"
                 } items-center text-white`}
@@ -146,6 +159,20 @@ const HeroPage = () => {
                       </motion.span>
                     ))}
                   </motion.div>
+                  <div className="flex items-center gap-8">
+                    {item.textButton.map((text, i) => (
+                      <motion.button
+                        variants={slideVariants}
+                        initial="hidden"
+                        animate="visible"
+                        custom={0.2 * i}
+                        key={i}
+                        className="bg-button_bg text-black px-6 py-4"
+                      >
+                        {text}
+                      </motion.button>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </div>
