@@ -8,6 +8,10 @@ module.exports = {
       colors: {
         nav_bg: "rgb(40, 40, 40)",
       },
+      width: {
+        sidebar_width: "400px",
+        sidebar_width_phone: "89vw"
+      }
 
     },
   }
